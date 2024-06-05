@@ -1,0 +1,28 @@
+server:
+  port: 30030
+spring:
+  datasource:
+    #driver-class-name: org.hsqldb.jdbcDriver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jbdc: mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3
+    url: jdbc:mysql://bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3?useSSL=false&allowPublicKeyRetrieval=true
+    username: uxppygnpmtrivqw9
+    password: ks6D9C8p6I9GtAaTDVlv
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        format_sql: false
+        #dialect: org.hibernate.dialect.HSQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: debug
+        type:
+          descriptor:
+            sql: trace
