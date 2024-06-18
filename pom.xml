@@ -20,9 +20,10 @@
 	<description>Proyecto de estudio Juan Fuente</description>
 	<properties>
 		<java.version>17</java.version>
-		<hsqldatabase.path>src/main/resources/db</hsqldatabase.path>
+		<!--<hsqldatabase.path>src/main/resources/db</hsqldatabase.path>-->
 		<!-- <database.url>jdbc:hsqldb:hsql://localhost:9013/templateDB</database.url> -->
-		<database.url>jdbc:mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3</database.url>
+		<!--<database.url>jdbc:mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3</database.url>-->
+		<database.url>jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:6543/postgres</database.url>
 		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
 		<exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
 		<mapstruct.version>1.5.3.Final</mapstruct.version>
@@ -42,26 +43,35 @@
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-core</artifactId>
 		</dependency>
-
-		 <dependency>
+		<!-- <dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.3.1</version>
+		</dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.27</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>me.paulschwarz</groupId>
+			<artifactId>spring-dotenv</artifactId>
+			<version>4.0.0</version>
 		</dependency>
 	</dependencies>
 
@@ -95,31 +105,31 @@
 		</plugins>
 	</build>
 
-	<profiles>
+	<!--<profiles>
 		<profile>
 			<id>run_database</id>
 			<build>
 				<plugins>
-					<!-- Configuración para MySQL -->
+					<!- Configuración para MySQL ->
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
 						<version>${exec-maven-plugin.version}</version>
 						<configuration>
-							<mainClass>com.campusdual.amazing_store.AmazingStore</mainClass> <!-- Clase principal para MySQL -->
+							<mainClass>com.campusdual.amazing_store.AmazingStore</mainClass> <!- Clase principal para MySQL ->
 							<arguments>
-								<!-- Argumentos para MySQL -->
+								<!- Argumentos para MySQL ->
 								<argument>-url</argument>
-								<argument>jdbc:mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3</argument> <!-- URL de conexión a tu base de datos MySQL -->
+								<argument>jdbc:mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3</argument> <!- URL de conexión a tu base de datos MySQL ->
 								<argument>-user</argument>
-								<argument>uxppygnpmtrivqw9</argument> <!-- Nombre de usuario de MySQL -->
+								<argument>uxppygnpmtrivqw9</argument> <!- Nombre de usuario de MySQL ->
 								<argument>-password</argument>
-								<argument>ks6D9C8p6I9GtAaTDVlv</argument> <!-- Contraseña de MySQL -->
+								<argument>ks6D9C8p6I9GtAaTDVlv</argument> <!- Contraseña de MySQL ->
 							</arguments>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 		</profile>
-	</profiles>
+	</profiles>-->
 </project>

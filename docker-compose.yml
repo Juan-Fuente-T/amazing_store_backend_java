@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  amazingstore:
+    image: amazingstore
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 30030:30030

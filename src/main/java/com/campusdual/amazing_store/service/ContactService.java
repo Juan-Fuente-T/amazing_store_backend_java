@@ -5,6 +5,7 @@ import com.campusdual.amazing_store.model.Contact;
 import com.campusdual.amazing_store.model.dao.ContactDao;
 import com.campusdual.amazing_store.model.dto.ContactDTO;
 import com.campusdual.amazing_store.model.dto.dtomapper.ContactMapper;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class ContactService implements IContactService {
     private ContactDao contactDao;
 
     @Override
+    @Transactional
     public ContactDTO queryContact(ContactDTO contactDTO) {
         Contact contact = ContactMapper.INSTANCE.toEntity(contactDTO);
         return ContactMapper.INSTANCE.toDTO(contactDao.getReferenceById(contact.getId()));
@@ -29,6 +31,7 @@ public class ContactService implements IContactService {
     }
 
     @Override
+    @Transactional
     public List<ContactDTO> queryAllContacts() {
         //Esta es la forma extendida
 //        List<Contact> listaEntidadesContacto = contactDao.findAll();
@@ -38,6 +41,7 @@ public class ContactService implements IContactService {
     }
 
     @Override
+    @Transactional
     public int insertContact(ContactDTO contactDTO) {
         //Esta es la forma extendida
 //        Contact entidadContacto = ContactMapper.INSTANCE.toEntity(contactDTO);//Entidad sin ID
@@ -52,12 +56,14 @@ public class ContactService implements IContactService {
     }
 
     @Override
+    @Transactional
     public int updateContact(ContactDTO contactDTO) {
         //seria aconsejable un is else para evaluar que no haya no intentar actualizar sin enviar un id
         return insertContact(contactDTO);//saveAndFlush inserta si no existe y actualiza si ya existe con un id
     }
 
     @Override
+    @Transactional
     public int deleteContact(ContactDTO contactDTO) {
         int id = contactDTO.getId();
         contactDao.delete(ContactMapper.INSTANCE.toEntity(contactDTO));

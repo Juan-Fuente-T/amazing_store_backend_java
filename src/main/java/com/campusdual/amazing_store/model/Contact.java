@@ -7,31 +7,57 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Represents a contact within the amazing store system.
+ * Contains basic information such as name, surname, telephone, city, email, and product type.
+ * This entity is mapped to the "contacts" table in the database.
+ */
 @Entity
-@Table(name="CONTACTS")
+@Table(name="contacts")
+//@Table(name = "\"CONTACTS\"")
 
 public class Contact {
+    /**
+     * Unique identifier for the contact.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    /**
+     * Name of the contact.
+     */
     @Column
     private String name;
-
+    /**
+     * Surname of the contact.
+     */
     @Column
     private String surname;
 
-    @Column
-    private String lastname;
+//    @Column
+//    private String lastname;
 
+    /**
+     * Telephone number of the contact.
+     */
     @Column
     private String telephone;
 
+    /**
+     * City of the contact.
+     */
   @Column
     private String city;
-
+    /**
+     * Email address of the contact.
+     */
     @Column
     private String email;
+    /**
+     * Type of product associated with the contact.
+     */
 
+    // Getters and Setters
     @Column
     private String product_type;
 
@@ -60,13 +86,13 @@ public class Contact {
         this.surname = surname;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+//    public String getLastname() {
+//        return lastname;
+//    }
+//
+//    public void setLastname(String lastname) {
+//        this.lastname = lastname;
+//    }
 
     public String getTelephone() {
         return telephone;

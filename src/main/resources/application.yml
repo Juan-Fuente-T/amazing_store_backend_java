@@ -3,11 +3,22 @@ server:
 spring:
   datasource:
     #driver-class-name: org.hsqldb.jdbcDriver
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    #driver-class-name: com.mysql.cj.jdbc.Driver
     #url: jbdc: mysql://uxppygnpmtrivqw9:ks6D9C8p6I9GtAaTDVlv@bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3
-    url: jdbc:mysql://bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3?useSSL=false&allowPublicKeyRetrieval=true
-    username: uxppygnpmtrivqw9
-    password: ks6D9C8p6I9GtAaTDVlv
+    #url: jdbc:mysql://bzczt8wwulqueqxch6g3-mysql.services.clever-cloud.com:3306/bzczt8wwulqueqxch6g3?useSSL=false&allowPublicKeyRetrieval=true
+    #username: DATABASE_MYSQL_USER
+    #password: DATABASE_MYSQL_PASS
+    #database:
+      url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:6543/postgres?user=${DATABASE_USER}&password=${DATABASE_PASSWORD}&prepareThreshold=0
+      driver-class-name: org.postgresql.Driver
+
+      hikari:
+        minimum-idle: 5
+        maximum-pool-size: 10
+        idle-timeout: 600000
+        max-lifetime: 1800000
+        connection-timeout: 30000
+        leak-detection-threshold: 2000
   jpa:
     hibernate:
       ddl-auto: none
@@ -17,12 +28,14 @@ spring:
       hibernate:
         format_sql: false
         #dialect: org.hibernate.dialect.HSQLDialect
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        #dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   logging:
     level:
       org:
         hibernate:
-          SQL: debug
+          SQL: DEBUG
         type:
           descriptor:
-            sql: trace
+            sql:
+               BasicBinder: TRACE

@@ -11,30 +11,56 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name="PRODUCTS")
+@Table(name="products")
+//@Table(name = "\"PRODUCTS\"")
 
 public class Product {
+    /**
+     * Unique identifier for the product.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    /**
+     * Name of the product.
+     */
     @Column
     private String name;
-
+    /**
+     * Stock quantity available for the product.
+     */
     @Column
     private int stock;
 
+    /**
+     * Price of the product.
+     */
     @Column
     private BigDecimal price;
-
+    /**
+     * Indicates if the product is currently active.
+     */
     @Column
     private boolean active;
-
+    /**
+     * Date when the product was added.
+     */
     @Column
     private Date date_added;
 
+    /**
+     * Type of product.
+     */
     @Column
     private String product_type;
 
+    /**
+     * ID of the contact associated with the product.
+     */
+    @Column
+    private int contact_id;
+
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -89,5 +115,11 @@ public class Product {
 
     public void setProduct_type(String product_type) {
         this.product_type = product_type;
+    }
+
+    public int getContact_id() { return contact_id; }
+
+    public void setContact_id(int contact_id) {
+        this.contact_id = contact_id;
     }
 }
