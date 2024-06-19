@@ -29,6 +29,7 @@ public class CombinedDataService implements ICombinedDataService {
                         "GROUP BY c.NAME, c.SURNAME, p.NAME, p.STOCK"
         );
 
+
         List<Object[]> results = query.getResultList();
         List<CombinedDTO> combinedDTOList = new ArrayList<>();
 

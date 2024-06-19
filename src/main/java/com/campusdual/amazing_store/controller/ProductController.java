@@ -1,7 +1,6 @@
 package com.campusdual.amazing_store.controller;
 
 import com.campusdual.amazing_store.api.IProductService;
-import com.campusdual.amazing_store.model.Product;
 import com.campusdual.amazing_store.model.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -109,13 +108,4 @@ public class ProductController {
         return productService.deleteProduct(productDTO);
     }
 
-//    @GetMapping(value = "/filteredData/{type}")
-//    public List<Object[]> getFilteredProductsAndContactsByType(@PathVariable String type) {
-//        return productService.getFilteredProductsAndContactsByType(type);
-//    }
-
-//    @GetMapping(value = "/filteredData")
-//    public List<Object[]> getFilteredProductsAndContactsByType() {
-//        return productService.getFilteredProductsAndContactsByType();
-//    }
 }

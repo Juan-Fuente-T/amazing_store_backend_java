@@ -2,9 +2,9 @@ package com.campusdual.amazing_store.controller;
 
 import com.campusdual.amazing_store.api.IContactService;
 import com.campusdual.amazing_store.model.dto.ContactDTO;
-import com.campusdual.amazing_store.api.IProductService;
-import com.campusdual.amazing_store.model.dto.ProductDTO;
-import com.campusdual.amazing_store.model.dto.CombinedDTO;
+//import com.campusdual.amazing_store.api.IProductService;
+//import com.campusdual.amazing_store.model.dto.ProductDTO;
+//import com.campusdual.amazing_store.model.dto.CombinedDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
