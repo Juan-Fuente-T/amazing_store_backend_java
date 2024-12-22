@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+### Notes ###
+PosiblesMEJORAS.txt
+App_database.txt
+
+.env
