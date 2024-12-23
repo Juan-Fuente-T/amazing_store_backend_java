@@ -39,3 +39,6 @@ spring:
           descriptor:
             sql:
                BasicBinder: TRACE
+jwt:
+  secret: fda2301aec625f465bf7e7611360b143696a11554da7a9a1e3fab5d5459a84bc1b09fa3eb3d5fddae23a92385bec0deca6d80353c4556da61774a3f8468a8a49
+  expirationMs: 86400000 # 1 día en milisegundos.
