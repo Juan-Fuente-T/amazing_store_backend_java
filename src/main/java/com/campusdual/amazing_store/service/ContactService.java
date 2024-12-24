@@ -12,12 +12,23 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class responsible for handling operations related to contacts in the amazing store system.
+ * Implements the IProductService interface to provide CRUD operations and queries for contacts.
+ */
 @Service("ContactService")
 @Lazy
 public class ContactService implements IContactService {
     @Autowired
     private ContactDao contactDao;
 
+    /**
+     * Queries a contact by its DTO representation and returns its detailed information.
+     * Converts the DTO to an entity, retrieves the product from the database, and then converts it back to a DTO.
+     *
+     * @param contactDTO The DTO representing the contact to query.
+     * @return The detailed information of the queried contact as a DTO.
+     */
     @Override
     @Transactional
     public ContactDTO queryContact(ContactDTO contactDTO) {
@@ -30,6 +41,12 @@ public class ContactService implements IContactService {
 //        return contactPojo;
     }
 
+    /**
+     * Retrieves all contacts available in the system.
+     * Converts the list of entities retrieved from the database to a list of DTOs.
+     *
+     * @return A list of DTOs representing all contacts.
+     */
     @Override
     @Transactional
     public List<ContactDTO> queryAllContacts() {
@@ -40,6 +57,13 @@ public class ContactService implements IContactService {
         return ContactMapper.INSTANCE.toDTOList(contactDao.findAll());
     }
 
+    /**
+     * Inserts a new contact into the database using the provided DTO.
+     * Converts the DTO to an entity, saves it to the database, and returns the generated ID.
+     *
+     * @param contactDTO The DTO representing the contact to insert.
+     * @return The ID of the newly inserted contact.
+     */
     @Override
     @Transactional
     public int insertContact(ContactDTO contactDTO) {
@@ -55,6 +79,14 @@ public class ContactService implements IContactService {
         return contact.getId();
     }
 
+    /**
+     * Updates an existing contact in the database using the provided DTO.
+     * Converts the DTO to an entity and saves it to the database.
+     * Note: This method uses the insertContacct method internally.
+     *
+     * @param contactDTO The DTO representing the contact to update.
+     * @return The ID of the updated contact.
+     */
     @Override
     @Transactional
     public int updateContact(ContactDTO contactDTO) {
@@ -62,6 +94,14 @@ public class ContactService implements IContactService {
         return insertContact(contactDTO);//saveAndFlush inserta si no existe y actualiza si ya existe con un id
     }
 
+    /**
+     * Deletes a contact from the database using the provided DTO.
+     * Converts the DTO to an entity and deletes it from the database.
+     * Returns the ID of the deleted product.
+     *
+     * @param contactDTO The DTO representing the contact to delete.
+     * @return The ID of the deleted contact.
+     */
     @Override
     @Transactional
     public int deleteContact(ContactDTO contactDTO) {

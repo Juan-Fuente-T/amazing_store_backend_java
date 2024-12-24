@@ -11,14 +11,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Service class for combining contact and product data.
+ */
 @Service("CombinedDataService")
 @Lazy
 public class CombinedDataService implements ICombinedDataService {
 
     @PersistenceContext
     private EntityManager entityManager;
-
+    /**
+     * Retrieves a list of contacts and their associated products.
+     *
+     * @return a list of CombinedDTO objects containing contact and product information
+     */
     @Override
     @Transactional
     public List<CombinedDTO> getContactProducts() {

@@ -34,9 +34,6 @@ public class Contact {
     @Column
     private String surname;
 
-//    @Column
-//    private String lastname;
-
     /**
      * Telephone number of the contact.
      */
@@ -56,12 +53,10 @@ public class Contact {
     /**
      * Type of product associated with the contact.
      */
-
-    // Getters and Setters
     @Column
     private String product_type;
 
-
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -85,14 +80,6 @@ public class Contact {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
-//    public String getLastname() {
-//        return lastname;
-//    }
-//
-//    public void setLastname(String lastname) {
-//        this.lastname = lastname;
-//    }
 
     public String getTelephone() {
         return telephone;
