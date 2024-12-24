@@ -23,12 +23,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws jakarta.servlet.ServletException, IOException {
 
         String jwt = parseJwt(request);
+//        logger.info("Received JWT: " + jwt);
         if (jwt != null && jwtUtils.validateToken(jwt)) {
             String username = jwtUtils.getUsernameFromToken(jwt);
+//            logger.info("Authenticated user: " + username);
             UsernamePasswordAuthenticationToken authentication =
                     new UsernamePasswordAuthenticationToken(username, null, null);
             authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authentication);
+        } else {
+            logger.warn("Invalid JWT token");
         }
         filterChain.doFilter(request, response);
     }

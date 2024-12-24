@@ -2,6 +2,8 @@ package com.campusdual.amazing_store;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 /**
  * Main entry point for the {@code AmazingStore} application.
  * This class initializes the Spring Boot application context and starts the application.
@@ -20,7 +22,18 @@ public class AmazingStore {
 	 * @param args Command line arguments passed to the application.
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(AmazingStore.class, args);
-	}
-
+		SpringApplication.run(AmazingStore.class, args);}
+//		SpringApplication.run(AmazingStore.class, args);
+//
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//
+//		String rawPasswordUser = "user123";
+//		String rawPasswordAdmin = "admin123";
+//
+//		String hashedUserPassword = passwordEncoder.encode(rawPasswordUser);
+//		String hashedAdminPassword = passwordEncoder.encode(rawPasswordAdmin);
+//
+//		System.out.println("Hashed User Password: " + hashedUserPassword);
+//		System.out.println("Hashed Admin Password: " + hashedAdminPassword);
+//	}
 }
