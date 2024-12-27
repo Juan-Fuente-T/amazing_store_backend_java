@@ -9,16 +9,15 @@ spring:
     #username: DATABASE_MYSQL_USER
     #password: DATABASE_MYSQL_PASS
     #database:
-      url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:6543/postgres?user=${DATABASE_USER}&password=${DATABASE_PASSWORD}&prepareThreshold=0
-      driver-class-name: org.postgresql.Driver
-
-      hikari:
-        minimum-idle: 5
-        maximum-pool-size: 10
-        idle-timeout: 600000
-        max-lifetime: 1800000
-        connection-timeout: 30000
-        leak-detection-threshold: 2000
+    url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:6543/postgres?user=${DATABASE_USER}&password=${DATABASE_PASSWORD}&prepareThreshold=0
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      leak-detection-threshold: 2000
   jpa:
     hibernate:
       ddl-auto: none
@@ -29,7 +28,8 @@ spring:
         format_sql: false
         #dialect: org.hibernate.dialect.HSQLDialect
         #dialect: org.hibernate.dialect.MySQL8Dialect
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        #dialect: org.hibernate.dialect.PostgreSQLDialect
+      open-in-view=false:
   logging:
     level:
       org:
@@ -38,7 +38,7 @@ spring:
         type:
           descriptor:
             sql:
-               BasicBinder: TRACE
-jwt:
-  secret: fda2301aec625f465bf7e7611360b143696a11554da7a9a1e3fab5d5459a84bc1b09fa3eb3d5fddae23a92385bec0deca6d80353c4556da61774a3f8468a8a49
-  expirationMs: 86400000 # 1 día en milisegundos.
+              BasicBinder: TRACE
+  jwt:
+    secret: fda2301aec625f465bf7e7611360b143696a11554da7a9a1e3fab5d5459a84bc1b09fa3eb3d5fddae23a92385bec0deca6d80353c4556da61774a3f8468a8a49
+    expirationMs: 86400000 # 1 día en milisegundos.
