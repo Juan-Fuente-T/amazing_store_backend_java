@@ -1,6 +1,6 @@
 # Amazing Store: Aplicación Web Full-Stack para Gestión de Tiendas/Almacenes
 
-![alt text](src/assets/images/amazing-store-charts-1.webp)
+![alt text](images/amazing-store-charts-1.webp)
 
 [![Estado del Despliegue](https://img.shields.io/website?url=https%3A%2F%2Famazing-store-front-javascript-angular-full.vercel.app&label=Frontend%20%28Vercel%29)](https://amazing-store-front-javascript-angular-full.vercel.app)
 
@@ -18,7 +18,7 @@ La aplicación implementa una arquitectura full-stack, combinando un backend rob
 
 Puedes experimentar la aplicación en funcionamiento aquí:
 
-- **URL**: juanfuente.ovh/amazing_store
+- **URL**: https://juanfuente.ovh/amazing_store
 - **Credenciales de Acceso**:
     - Usuario: `user`
     - Contraseña: `user123`
@@ -233,3 +233,7 @@ Durante el desarrollo de este proyecto, me enfrenté a varios desafíos técnico
 ### 🤝 Contribuciones
 
 Las contribuciones son bienvenidas. Por favor, sigue los pasos estándar de fork y pull request.
+
+### 📜 Licencia
+
+Distribuido bajo la   **Licencia MIT.** Ver LICENSE para más
