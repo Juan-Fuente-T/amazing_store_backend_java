@@ -1,6 +1,7 @@
 package com.campusdual.amazing_store.auth;
 
 import io.jsonwebtoken.*;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +14,19 @@ public class JwtUtils {
 
     @Value("${jwt.secret}")
     private String jwtSecret;
-
+//    @Value("${jwt.secret:fda2301aec625f465bf7e7611360b143696a11554da7a9a1e3fab5d5459a84bc1b09fa3eb3d5fddae23a92385bec0deca6d80353c4556da61774a3f8468a8a49}")
+//    private String jwtSecret;
 
     @Value("${jwt.expirationMs}")
     private int jwtExpirationMs;
+@PostConstruct
+public void checkProperties() {
+    System.out.println("JWT Secret: " + jwtSecret);
+    System.out.println("JWT Expiration: " + jwtExpirationMs);
+}
+
+//    @Value("${jwt.expirationMs: 86400000}")
+//    private int jwtExpirationMs;
 
     /**
      * Generates a JWT token for a given username.
@@ -55,5 +65,13 @@ public class JwtUtils {
         } catch (JwtException e) {
             return false;
         }
+    }
+
+    public String getJwtSecret() {
+        return jwtSecret;
+    }
+
+    public int getJwtExpirationMs() {
+        return jwtExpirationMs;
     }
 }

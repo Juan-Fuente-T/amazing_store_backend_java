@@ -71,7 +71,7 @@ INSERT INTO CONTACTS VALUES(3,'Carla','Berinto','Largo','7771111777','cbl@jemail
 INSERT INTO CONTACTS VALUES(4,'Alejandro','Medario','Cansado','8881111888','amc@jemail.com')
 INSERT INTO CONTACTS VALUES(5,'Alfredo','Lorido','Roto','9991111999','adl@jemail.com')
 INSERT INTO CONTACTS VALUES(6,'Rebeca','Cerola','Grande','4441111444','rcg@jemail.com')
-INSERT INTO CONTACTS VALUES(9,'Carmen','Sajero','R\u00e1pido','3331111333','cmr@jemail.com')
+INSERT INTO CONTACTS VALUES(9,'Carmen','Sajero','Rapido','3331111333','cmr@jemail.com')
 INSERT INTO CONTACTS VALUES(21,'Dolores','Fuertes','Debarriga','8888888888','dfd@jmaill.com')
 INSERT INTO CONTACTS VALUES(22,'Manuel','Efante','Loco','666333666','mel@jemail.com')
 INSERT INTO CONTACTS VALUES(23,'Constante','Remoto','Grande','5556666555','ctg@jemail.com')
