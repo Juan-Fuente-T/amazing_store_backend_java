@@ -12,21 +12,15 @@ import java.util.Date;
 @Component
 public class JwtUtils {
 
-    @Value("${jwt.secret}")
+    @Value("${spring.jwt.secret}")
     private String jwtSecret;
-//    @Value("${jwt.secret:fda2301aec625f465bf7e7611360b143696a11554da7a9a1e3fab5d5459a84bc1b09fa3eb3d5fddae23a92385bec0deca6d80353c4556da61774a3f8468a8a49}")
-//    private String jwtSecret;
-
-    @Value("${jwt.expirationMs}")
+    @Value("${spring.jwt.expirationMs}")
     private int jwtExpirationMs;
-@PostConstruct
-public void checkProperties() {
-    System.out.println("JWT Secret: " + jwtSecret);
-    System.out.println("JWT Expiration: " + jwtExpirationMs);
-}
-
-//    @Value("${jwt.expirationMs: 86400000}")
-//    private int jwtExpirationMs;
+//@PostConstruct
+//public void checkProperties() {
+//    System.out.println("JWT Secret: " + jwtSecret);
+//    System.out.println("JWT Expiration: " + jwtExpirationMs);
+//}
 
     /**
      * Generates a JWT token for a given username.
@@ -35,7 +29,6 @@ public void checkProperties() {
      * @return a JWT token as a string
      */
     public String generateToken(String username) {
-//        System.out.println("jwtSecret y jwtExpirationMs" + jwtSecret + jwtExpirationMs);
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
